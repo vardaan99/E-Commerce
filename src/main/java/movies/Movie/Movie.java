@@ -12,7 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class Movie {
 
 	@Id @GeneratedValue( strategy = GenerationType.AUTO )
-	private int mid;
+	private int id;
 	private String name;
 	private String Description;
 	private int Rating;
@@ -39,11 +39,11 @@ public class Movie {
 	}
 
 	public int getId() {
-		return mid;
+		return id;
 	}
 	
-	public void setId(int mid) {
-		this.mid = mid;
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public String getName() {

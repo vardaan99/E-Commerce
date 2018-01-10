@@ -25,7 +25,7 @@
 
 <br>
 
-<form:form method="post" action="UpdateMovieFromDB" modelAttribute="Movie" style="margin: auto; width: 80%; text-align: center;">
+<form:form method="post" action="UpdateMovieToDB" modelAttribute="Movie" style="margin: auto; width: 80%; text-align: center;">
 
 	<form:input path="id" type="text" class="form-control" placeholder="Id"  readonly="true"/>
 	

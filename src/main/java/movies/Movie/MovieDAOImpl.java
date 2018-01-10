@@ -25,12 +25,12 @@ public class MovieDAOImpl implements MovieDAO {
 		
 	}
 
-	public void delete(int mid) {
-		sessionFactory.getCurrentSession().createQuery("delete from Genre where mid = :somevalue").setInteger("somevalue", mid).executeUpdate();		
+	public void delete(int id) {
+		sessionFactory.getCurrentSession().createQuery("delete from Movie where id = :somevalue").setInteger("somevalue", id).executeUpdate();		
 		}
 
-	public Movie getMovie(int mid) {
-		return (Movie) sessionFactory.getCurrentSession().get(Movie.class, mid);
+	public Movie getMovie(int id) {
+		return (Movie) sessionFactory.getCurrentSession().get(Movie.class, id);
 		
 	}
 

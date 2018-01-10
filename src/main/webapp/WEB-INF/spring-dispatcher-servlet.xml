@@ -55,9 +55,13 @@
 			<list>
 				<value>movies.Genre</value>
 				<value>movies.Movie</value>
+				<value>movies.Cart</value>
+				<value>movies.Profiles</value>
 			</list>
 		</property>
+		
 	</bean>	
+	
 
 	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />

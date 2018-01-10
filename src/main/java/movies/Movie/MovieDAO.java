@@ -6,9 +6,9 @@ public interface MovieDAO {
 	
 	void insert( Movie m );
 	void update( Movie m );
-	void delete( int mid );
+	void delete( int id );
 
-	Movie getMovie(int mid);
+	Movie getMovie(int id);
 	List<Movie> getMovie();
 
 }
