@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -89,21 +91,98 @@
 /*fontcolor*/
 .light-grey {color:#01579B!important;background-color:#E6E9ED!important}
 
+/*Sign up form*/
+  .mycolor{
+            color : #72c02c;
+        }        
+        .myborder{
+            padding: 20px;;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            -webkit-box-shadow: 0px 0px 3px 0px #72c02c;
+            -moz-box-shadow:    0px 0px 3px 0px #72c02c;
+            box-shadow:         0px 0px 3px 0px #72c02c;
+        }
+        .mybutton{
+            position: relative;
+            left: 50%;
+            top: 193px;
 
-.form-control { 
+        }
+        .margin-bottom-20 {
+            margin-bottom: 20px;
 
-margin-bottom: 10px;
-
- }
- 
-.content_bottom  { 
-border-top: 5pt solid #f4f4f4;
-padding: 10pt;
-border-collapse: separate;
-text-align: left;
-
-}
-
+        }
+        .btn-u:hover {
+            background: #5fb611;
+        }
+        .btn-u:hover, .btn-u:focus, .btn-u:active, .btn-u.active, .open .dropdown-toggle.btn-u {
+            background: #5fb611;
+        }
+        .btn-u:hover {
+            color: #fff;
+            text-decoration: none;
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+        .btn-u {
+            background: #72c02c;
+        }
+        .btn-u {
+            white-space: nowrap;
+            border: 0;
+            color: #fff;
+            font-size: 14px;
+            cursor: pointer;
+            font-weight: 400;
+            padding: 6px 13px;
+            position: relative;
+            background: #72c02c;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .input-group-addon {
+            border-right: 0;
+            /*color: #b3b3b3;*/
+            font-size: 14px;
+            background: #fff;
+            padding: 6px 12px;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 1;
+            color: #555;
+            text-align: center;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-group .form-control {
+            float: left;
+            width: 100%;
+            margin-bottom: 0;
+        }
+        .form-control {
+            box-shadow: none;
+        }
+        .form-control {
+            display: block;
+            width: 100%;
+            height: 34px !important;
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.428571429;
+            color: #555;
+            background-color: #fff;
+            background-image: none;
+            border: 1px solid  #72c02c !important;
+            border-radius: 4px;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+            -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+            transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+        }
 </style>
 
 <header>
@@ -159,59 +238,42 @@ text-align: left;
           </div>
         </div>  
       </div>
- <div class="container">
-    <div class="row">
-    <div class ="col-md-4">
-    </div>
-        <div class="col-xs-12 col-sm-12 col-md-4 well well-sm" >
-            <legend><a href="http://www.jquery2dotnet.com"><i class="glyphicon glyphicon-globe"></i></a> Sign up!</legend>
-            <form action="#" method="post" class="form" role="form">
+ <br />
+ <form:form method="post" action="AddProfilesToDB" modelAttribute="Profiles" style="margin: auto; width: 80%; text-align: center;">
+<div class="container">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+         <div class="row myborder">
+             <h4 style="color: #7EB59E; margin: initial; margin-bottom: 10px;">Sign Up Now</h4><hr>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                <form:input size="60" maxlength="255" class="form-control" placeholder="Email ID" path="Email" id="UserRegistration_username" type="text"/>                                                        </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock mycolor"></i></span>
+                <form:input size="60" maxlength="255" class="form-control" placeholder="Password" path="Password" id="UserRegistration_password" type="password"/>                                    </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                <form:input size="60" maxlength="255" class="form-control" placeholder="First Name" path="First_Name" id="UserRegistration_fname" type="text"/>                                    </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user mycolor"></i></span>
+                <form:input size="60" maxlength="255" class="form-control" placeholder="Last Name" path="Last_Name" id="UserRegistration_lname" type="text"/>                                    </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope mycolor"></i></span>
+                <form:input size="60" maxlength="255" class="form-control" placeholder="Address" path="Address" id="UserRegistration_address" type="text"/>                                    </div>
+            <div class="input-group margin-bottom-20">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-phone mycolor"></i></span>
+                <form:input size="60" maxlength="255" class="form-control" placeholder="Contact Number" path="Contact_Number" id="UserRegistration_contactnumber" type="text"/>                                    </div>
             <div class="row">
-                <div class="col-xs-6 col-md-6">
-                    <input class="form-control" name="firstname" placeholder="First Name" type="text"
-                        required autofocus />
-                </div>
-                <div class="col-xs-6 col-md-6">
-                    <input class="form-control" name="lastname" placeholder="Last Name" type="text" required />
+                <div class="col-md-12">
+                    <button class="btn-u pull-left" type="submit">Sign Up</button>
                 </div>
             </div>
-            <input class="form-control" name="youremail" placeholder="Your Email" type="email" />
-            <input class="form-control" name="reenteremail" placeholder="Re-enter Email" type="email" />
-            <input class="form-control" name="password" placeholder="New Password" type="password" />
-            <label for="">
-                Birth Date</label>
-            <div class="row">
-                <div class="col-xs-4 col-md-4">
-                    <select class="form-control">
-                        <option value="Month">Month</option>
-                    </select>
-                </div>
-                <div class="col-xs-4 col-md-4">
-                    <select class="form-control">
-                        <option value="Day">Day</option>
-                    </select>
-                </div>
-                <div class="col-xs-4 col-md-4">
-                    <select class="form-control">
-                        <option value="Year">Year</option>
-                    </select>
-                </div>
-            </div>
-            <label class="radio-inline">
-                <input type="radio" name="sex" id="inlineCheckbox1" value="male" />
-                Male
-            </label>
-            <label class="radio-inline">
-                <input type="radio" name="sex" id="inlineCheckbox2" value="female" />
-                Female
-            </label>
-            <br />
-            <br />
-            <button class="btn btn-lg btn-primary btn-block" type="submit">
-                Sign up</button>
-            </form>
         </div>
+        <div class="col-md-2"></div>
     </div>
+      </div>
+      </form:form>
+  </div>
 </div>
     </nav>
   </nav> 

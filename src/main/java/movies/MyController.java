@@ -34,12 +34,11 @@ public class MyController {
 		return mv;
 	}
 
-	@RequestMapping("/login")
+	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView("login");
-
-		mv.addObject("WelcomeMessage", "Welcome to the login Page");
-
+		
+		ModelAndView mv = new ModelAndView("loginpage");
+		
 		return mv;
 	}
 

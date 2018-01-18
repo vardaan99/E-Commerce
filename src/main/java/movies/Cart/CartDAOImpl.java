@@ -37,7 +37,4 @@ public class CartDAOImpl implements CartDAO {
 	public List<Cart> getCart() {
 		return sessionFactory.getCurrentSession().createQuery("from Cart").list();
 		}
-
-	
-
 }

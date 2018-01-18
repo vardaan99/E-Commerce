@@ -39,40 +39,15 @@ public class ProfileController {
 		return mv;
 	}
 	
-	/*@RequestMapping("/UpdateGenre/{id}")
-	public ModelAndView UpdateProfiles( @PathVariable("id") int id )
-	{
-		ModelAndView mv = new ModelAndView("UpdateGenre");
-		
-		mv.addObject("Profiles",  pdao.getProfiles());
-		
-		return mv;
-	}
-	@RequestMapping("/ViewGenre")
-	public ModelAndView ViewGenre() {
-		ModelAndView mv = new ModelAndView("ViewGenre");
+	
+	@RequestMapping("/ViewProfiles")
+	public ModelAndView ViewProfiles() {
+		ModelAndView mv = new ModelAndView("ViewProfiles");
 
-		mv.addObject("AllGenre", pdao.getProfiles());
+		mv.addObject("AllProfiles", pdao.getProfiles());
 
 		return mv;
 	}
 
-	@RequestMapping(value="/UpdateGenre/UpdateGenreToDB",method=RequestMethod.POST)
-	public ModelAndView UpdateGenreToDB( @ModelAttribute("Genre") Profiles p )
-	{
-		ModelAndView mv = new ModelAndView("redirect:/ViewGenre");
-		
-		pdao.update(p);
-		
-		return mv;
-	}
-
-	@RequestMapping("/DeleteGenreFromDB/{id}")
-	public ModelAndView DeleteGenreFromDB(@PathVariable("id") int id) {
-		ModelAndView mv = new ModelAndView("redirect:/ViewGenre");
-
-		pdao.delete(id);
-
-		return mv;
-	}*/
 }
+	

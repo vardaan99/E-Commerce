@@ -14,7 +14,7 @@ public class Cart {
 	private String Billing_Address;
 	private String Shipping_Address;
 	private int quantity;
-	private String username;
+	private String Email;
 	public int getId() {
 		return id;
 	}
@@ -45,11 +45,11 @@ public class Cart {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public String getUsername() {
-		return username;
+	public String getEmail() {
+		return Email;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsername(String Email) {
+		this.Email = Email;
 	} 
 	
 	

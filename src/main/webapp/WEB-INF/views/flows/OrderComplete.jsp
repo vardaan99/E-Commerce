@@ -29,9 +29,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="/pets/" style="color: black">Home</a></li>
-        <li><a href="/pets/aboutus/" style="color: black">About Us</a></li>
-        <li><a href="/pets/contactus/" style="color: black">Contact Us</a></li>  
+        <li><a href="/movies/" style="color: black">Home</a></li>
+        <li><a href="/movies/aboutus/" style="color: black">About Us</a></li>
+        <li><a href="/movies/contactus/" style="color: black">Contact Us</a></li>  
       </ul>
     </div>
   </div>

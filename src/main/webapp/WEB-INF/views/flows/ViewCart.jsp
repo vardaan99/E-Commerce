@@ -29,9 +29,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="/pets/" style="color: black">Home</a></li>
-        <li><a href="/pets/aboutus/" style="color: black">About Us</a></li>
-        <li><a href="/pets/contactus/" style="color: black">Contact Us</a></li>  
+        <li><a href="/movies/" style="color: black">Home</a></li>
+        <li><a href="/movies/aboutus/" style="color: black">About Us</a></li>
+        <li><a href="/movies/contactus/" style="color: black">Contact Us</a></li>  
       </ul>
     </div>
   </div>
@@ -39,7 +39,7 @@
 
 <h1>View Cart</h1>
 
-<a href="${pageContext.request.contextPath}/ViewBreed">View All Breeds</a>
+<a href="${pageContext.request.contextPath}/ViewGenre">View All Genres</a>
 <a href="${flowExecutionUrl}&_eventId=goToPage2">Select Address</a>
 
 </body>

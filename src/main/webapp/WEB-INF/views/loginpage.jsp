@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -289,9 +291,13 @@ body{
             <div id="output"></div>
             <div class="avatar"></div>
             <div class="form-box">
-                <form action="" method="">
-                    <input name="user" type="text" placeholder="username">
-                    <input name="pass" type="password" placeholder="password">
+                <form action="login" method="post">
+                	<c:if test="${not empty param.error}">
+                		<h1 class="text text-danger">Invalid Credentials</h1>
+                	</c:if>
+                
+                    <input name="email"  class="form-control" type="text" placeholder=" Email">
+                    <input name="password"  class="form-control" type="password" placeholder="Password">
                     <button class="btn btn-info btn-block login" type="submit">Login</button>
                 </form>
             </div>
@@ -302,7 +308,8 @@ body{
   
 <!--bg img  -->
     
-<script>// toggle class scroll 
+<script>// toggle class scroll
+
 $(window).scroll(function() {
     if($(this).scrollTop() > 50)
     {
@@ -315,13 +322,13 @@ $(window).scroll(function() {
 });
 
 $(function(){
-	var textfield = $("input[name=user]");
-	var textfield1 = $("input[name=pass]");
-	
-	            $('button[type="submit"]').click(function(e) {
+	var textfield = $("input[name=email]");
+	var textfield1 = $("input[name=password]");
+
+	            /* $('button[type="submit"]').click(function(e) {
 	                e.preventDefault();
 	                //little validation just to check username
-	                if (textfield.val() != "" || textfield1.val()!="" ) {
+	                if (textfield.val()!= "" || textfield1.val()!="" ) {
 	                    //$("body").scrollTo("#output");
 	                    $("#output").addClass("alert alert-success animated fadeInUp").html("Welcome back " + "<span style='text-transform:uppercase'>" + textfield.val() + "</span>");
 	                    $("#output").removeClass(' alert-danger');
@@ -352,14 +359,15 @@ $(function(){
 	                else {
 	                    //remove success mesage replaced with error message
 	                    $("#output").removeClass(' alert alert-success');
-	                    $("#output").addClass("alert alert-danger animated fadeInUp").html("Sorry enter a username ");
+	                    $("#output").addClass("alert alert-danger animated fadeInUp").html("Sorry Enter an Email ");
 	                    
 	                }
 	                //console.log(textfield.val());
 
 	            });
+	*/
 	});
-
+ 
   </script>
 
 </body>
