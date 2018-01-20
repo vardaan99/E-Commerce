@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>View Cart</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -19,16 +19,51 @@
 </head>
 <script type="text/javascript">
 
-angular.module("myApp",[]).controller("myCtrl",["$scope","$http",function($scope,$http){
+var app = angular.module("myApp" , []).controller("myCtrl" , function($scope,$http){
 	
-	console.log('myApps MyCtrl');
+	$scope.data = [];
 	
-	$http({url:"http://localhost:9001/movies/fetchCartItems",method:"POST",headers: {'Content-Type': 'application/json'}}).then(function( response ){
-		console.log(response);
-		
-		$scope.data = response.data;
-	});
-}]);
+	$http( {
+				method: 'POST',
+				url:'http://localhost:9001/movies/fetchCartItems',
+				headers : {'Content-Type':'application/x-www-form-urlencoded'}
+		}).then(function(response){
+	    	console.log(response.data);
+		    
+	    	$scope.data = response.data;
+	    	
+		});
+	
+$scope.Delete=function(arg){
+    	
+    	alert(arg);
+    	
+    	var json={"id":arg};
+    	
+    	console.log( JSON.stringify(json) );
+    	
+    	$http(	{
+			method: 'POST',
+      		url: 'deletefromcart',
+      		data:JSON.stringify(json),
+      		 headers : {'Content-Type':'application/json'}
+			}).then(function(response){
+		    	console.log(response.data);
+		    
+		    	//Fetch Again
+		    	$http(	{
+	    			method: 'POST',
+		      		url: 'getAllCartItems',
+		      		 headers : {'Content-Type':'application/x-www-form-urlencoded'}
+	    			}).then(function(response){
+				    	console.log(response.data);
+				    
+				    	$scope.data = response.data;
+				    	
+	    			});
+			});
+    }	
+});
 
 </script>
 
@@ -55,6 +90,27 @@ angular.module("myApp",[]).controller("myCtrl",["$scope","$http",function($scope
 </nav>
 
 <h1>View Cart</h1>
+
+<table class="table table-striped" style="margin: auto; width: 80%; text-align: center;">
+	<thead>
+			<tr style="text-align: center;">
+				<th>NAME</th>
+				<th>RATING</th>
+				<th>QUANTITY</th>
+				<th>Image</th>
+				<th>DELETE</th>
+			</tr>
+	</thead>
+	<tbody>		
+		<tr>
+			<td>${x.getName()}</td>
+			<td>${x.getRating()}</td>
+			<td>${x.getQuantity()}</td>
+			<td><img src="${x.getImagePath()}" style="height: 50px; width: 50px;"></td>
+			<td><a href="DeleteMovieFromDB/${x.getId()}" class="btn btn-danger">Delete</a></td>
+		</tr>
+	</tbody>
+</table>
 
 <a href="${pageContext.request.contextPath}/ViewMovie">View All Movies</a>
 <a href="${flowExecutionUrl}&_eventId=goToPage2">Select Address</a>

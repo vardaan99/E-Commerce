@@ -35,6 +35,10 @@
 	
 	<br>
 	
+	<form:input path="Quantity" type="" class="form-control" placeholder="Quantity" />
+	
+	<br>
+	
 	<form:textarea path="Description" class="form-control" placeholder="Movie Description"/> 
 
 	<br>
@@ -42,7 +46,10 @@
 	<form:input path="f" type="file" class="form-control" placeholder="Add Image" />
 
 	<br>
-
+	
+	
+	
+	
 	<input type="submit" class="btn btn-primary" value="Submit"/>
 
 </form:form>

@@ -35,6 +35,7 @@
 			<th>NAME</th>
 			<th>RATING</th>
 			<th>DESCRIPTION</th>
+			<th>IMAGE PATH</th>
 			<th>UPDATE</th>
 			<th>DELETE</th>
 		</tr>
@@ -50,12 +51,23 @@
 			<td align="left">${x.getName()}</td>
 			<td align="left">${x.getRating()}</td>
 			<td align="left">${x.getDescription()}</td>
+			<td align="left">${x.getImagePath()}</td>
 			<td align="left"><a href="UpdateMovie/${x.getId()}" class="btn btn-danger">Update</a></td>
+			
+			<td align="left"><a href="ViewOneMovie/${x.getId()}" class="btn btn-primary">View Further</a></td>
+			
 			<td align="left"><a href="DeleteMovieFromDB/${x.getId()}" class="btn btn-danger">Delete</a></td>
 		</tr>
 		
 		</c:forEach>		
-			
+			<%-- <form action="${pageContext.request.contextPath}/AddCartToDB" method="post">
+		<br>    
+    	<center>
+    	<button type="submit" class="btn btn-success" style=" float:left; margin-left:50px; margin-top:23px">AddToCart</button>
+    	</center>	
+	
+	</form>
+	 --%>		
 		
 			
 	</tbody>

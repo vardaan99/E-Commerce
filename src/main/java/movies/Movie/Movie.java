@@ -16,18 +16,27 @@ public class Movie {
 	private String name;
 	private String Description;
 	private int Rating;
+	private String ImagePath;
+	private int Quantity;
 	
 	@Transient
 	private MultipartFile f;
 	
-	private String imagePath;
 	
+	public int getQuantity() {
+		return Quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		Quantity = quantity;
+	}
+
 	public String getImagePath() {
-		return imagePath;
+		return ImagePath;
 	}
 
 	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+		this.ImagePath = imagePath;
 	}
 
 	public MultipartFile getF() {

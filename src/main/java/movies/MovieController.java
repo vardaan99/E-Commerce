@@ -62,9 +62,12 @@ public class MovieController {
 	            		  "api_secret", "UQzGfBCt1oL_YnvPOWTfzEi9qTM"));
 	            
 	            Map uploadResult = cloudinary.uploader().upload(f1, ObjectUtils.emptyMap());
-			
-	            System.out.println( uploadResult );
+	            System.out.println( uploadResult);
+	            System.out.println(uploadResult.get("secure_url").toString());
+	            m.setImagePath(uploadResult.get("secure_url").toString());
+	            
 		}
+		
 		catch( Exception e )
 		{
 			e.printStackTrace();

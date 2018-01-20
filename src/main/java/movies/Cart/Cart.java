@@ -11,12 +11,14 @@ import movies.Movie.Movie;
 public class Cart {
 
 	@Id @GeneratedValue( strategy = GenerationType.AUTO )
+	
 	private int id;
 	private int pid;
 	private String Billing_Address;
 	private String Shipping_Address;
 	private int quantity;
 	private String Email;
+	
 	public int getId() {
 		return id;
 	}
