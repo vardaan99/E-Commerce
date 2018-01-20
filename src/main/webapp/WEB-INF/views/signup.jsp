@@ -186,7 +186,7 @@
 </style>
 
 <header>
-    <img src="http://res.cloudinary.com/dcggaci79/image/upload/v1510855596/popcorn-1433327_1920_e2etqp.jpg" style="width:100%">
+    <img src="http://res.cloudinary.com/dcggaci79/image/upload/v1511462181/um08ywluqywhvawbwcav.jpg" style="width:100%">
 </header>
 
 <nav class="navbar navbar-default navbar-doublerow navbar-trans navbar-fixed-top">

@@ -2,7 +2,17 @@
 <flow xmlns="http://www.springframework.org/schema/webflow"
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.springframework.org/schema/webflow
-http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
+ 
+ 	<var name="cart" class="movies.MyController"/>
+ 
+ 	<action-state id="TestLogin">
+ 		<evaluate expression="cart.test()"/>
+ 			<transition to="ViewCart" on="loggedin" />
+        	<transition to="LoginPage" on="notloggedin" />
+ 	</action-state>
+ 
+ 	<view-state id="LoginPage" view="/WEB-INF/views/LoginPage.jsp"/>
  
 	<view-state id="ViewCart" view="/WEB-INF/views/flows/ViewCart.jsp">
 		<transition to="ViewAddress" on="goToPage2" />
@@ -17,11 +27,7 @@ http://www.springframework.org/schema/webflow/spring-webflow.xsd">
 		<transition to="ViewAddress" on="goToPage2" />
 		<transition to="OrderComplete" on="goToPage4" />
 	</view-state>
-	 
-	 <view-state id="OrderComplete" view="/WEB-INF/views/flows/OrderComplete.jsp">
-		<transition to="ViewInvoice" on="goToPage3" />
-	</view-state>
-	 
-	<end-state id="confirmOrder" view="/WEB-INF/views/flows/viewcartthankyoupage.jsp"/>
+	  
+	<end-state id="OrderComplete" view="/WEB-INF/views/flows/OrderComplete.jsp"/>
 	
 </flow>

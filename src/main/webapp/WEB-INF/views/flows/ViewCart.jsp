@@ -14,8 +14,25 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 </head>
-<body>
+<script type="text/javascript">
+
+angular.module("myApp",[]).controller("myCtrl",["$scope","$http",function($scope,$http){
+	
+	console.log('myApps MyCtrl');
+	
+	$http({url:"http://localhost:9001/movies/fetchCartItems",method:"POST",headers: {'Content-Type': 'application/json'}}).then(function( response ){
+		console.log(response);
+		
+		$scope.data = response.data;
+	});
+}]);
+
+</script>
+
+<body ng-app="myApp" ng-controller="myCtrl">
 
 <nav class="navbar navbar-inverse" style="border-radius: 0px; border: none; background-color: #cc6600;">
   <div class="container-fluid">
@@ -29,9 +46,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li><a href="/movies/" style="color: black">Home</a></li>
-        <li><a href="/movies/aboutus/" style="color: black">About Us</a></li>
-        <li><a href="/movies/contactus/" style="color: black">Contact Us</a></li>  
+        <li><a href="/pets/" style="color: black">Home</a></li>
+        <li><a href="/pets/aboutus/" style="color: black">About Us</a></li>
+        <li><a href="/pets/contactus/" style="color: black">Contact Us</a></li>  
       </ul>
     </div>
   </div>
@@ -39,8 +56,10 @@
 
 <h1>View Cart</h1>
 
-<a href="${pageContext.request.contextPath}/ViewGenre">View All Genres</a>
+<a href="${pageContext.request.contextPath}/ViewMovie">View All Movies</a>
 <a href="${flowExecutionUrl}&_eventId=goToPage2">Select Address</a>
+
+<div ng-repeat="x in data">{{x.name}}</div>
 
 </body>
 </html>

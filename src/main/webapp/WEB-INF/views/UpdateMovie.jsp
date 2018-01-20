@@ -21,7 +21,7 @@
 
 <br>
 
-<h1 style="margin: auto; width: 80%; text-align: center;">Add Category</h1>
+<h1 style="margin: auto; width: 80%; text-align: center;">Add Movie</h1>
 
 <br>
 

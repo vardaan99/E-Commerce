@@ -57,9 +57,9 @@ public class MovieController {
 	            stream.close();
 	            
 	            Cloudinary cloudinary = new Cloudinary(ObjectUtils.asMap(
-	            		  "cloud_name", "my_cloud_name",
-	            		  "api_key", "my_api_key",
-	            		  "api_secret", "my_api_secret"));
+	            		  "cloud_name", "dcggaci79",
+	            		  "api_key", "661329623955634",
+	            		  "api_secret", "UQzGfBCt1oL_YnvPOWTfzEi9qTM"));
 	            
 	            Map uploadResult = cloudinary.uploader().upload(f1, ObjectUtils.emptyMap());
 			

@@ -319,7 +319,7 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 </style>
 
 <header>
-    <img src="http://res.cloudinary.com/dcggaci79/image/upload/v1510855596/popcorn-1433327_1920_e2etqp.jpg" style="width:100%">
+    <img src="http://res.cloudinary.com/dcggaci79/image/upload/v1511462181/um08ywluqywhvawbwcav.jpg" style="width:100%">
 </header>
 
 <nav class="navbar navbar-default navbar-doublerow navbar-trans navbar-fixed-top">
@@ -385,7 +385,7 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
             <!--========= 1st slide =========-->
             <div class="item">
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
-                  <img src="http://res.cloudinary.com/dcggaci79/image/upload/v1514060148/marvel-2688068_640_pgqkdn.jpg" alt="slider 01">
+                  <img src="http://res.cloudinary.com/dcggaci79/image/upload/c_scale,h_300,w_300/v1516361607/deadpool-1280x720_o5hht3.jpg" alt="slider 01">
                   <div class="team_columns_item_caption">
                      <h4>Deadpool</h4>
                      <hr>
@@ -393,7 +393,7 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-1">
-                  <img src="http://res.cloudinary.com/dcggaci79/image/upload/v1514060374/capitanamerica-2688069_640_oz9kmj.jpg" alt="slider 02">
+                  <img src="http://res.cloudinary.com/dcggaci79/image/upload/c_scale,h_300,w_300/v1516361604/2011_captain_america_first_avenger-1280x720_v8bbqt.jpg" alt="slider 02">
                   <div class="team_columns_item_caption">
                      <h4>Captain America</h4>
                      <hr>
@@ -401,7 +401,7 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-2">
-                  <img src="" alt="slider 02">
+                  <img src="http://res.cloudinary.com/dcggaci79/image/upload/c_scale,h_300,w_300/v1516361610/spiderman_homecoming_2017_4k_8k-1280x720_tvnr63.jpg" alt="slider 02">
                   <div class="team_columns_item_caption">
                      <h4>Spiderman</h4>
                      <hr>
@@ -409,9 +409,9 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-3">
-                  <img src="" alt="slider 02">
+                  <img src="http://res.cloudinary.com/dcggaci79/image/upload/c_scale,h_300,w_300/v1516361612/iron_man_3_movie-1280x720_v79bah.jpg" alt="slider 02">
                   <div class="team_columns_item_caption">
-                     <h4>iron man 3</h4>
+                     <h4>Iron Man 3</h4>
                      <hr>
                      <h5>Action</h5>
                   </div>
@@ -420,38 +420,38 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
             <!--========= 2nd slide =========-->
             <div class="item active">
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
-                  <img src="http://placehold.it/150x150" alt="slider 02">
+                  <img src="http://res.cloudinary.com/dcggaci79/image/upload/c_scale,h_150,w_150/v1516358222/kylo_ren_artwork_4k-1280x720_irvk9h.jpg" alt="slider 02">
                   <div class="team_columns_item_caption">
-                     <h4>Lahore</h4>
+                     <h4>Star Wars</h4>
                      <hr>
-                     <h5>PAKISTAN</h5>
+                     <h5>Sci-Fi</h5>
+                  </div>
+               </div>
+               <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">
+                  <img src="http://res.cloudinary.com/dcggaci79/image/upload/c_scale,h_300,w_300/v1516361607/deadpool-1280x720_o5hht3.jpg" alt="slider 01">
+                  <div class="team_columns_item_caption">
+                     <h4>Deadpool</h4>
+                     <hr>
+                     <h5>Thriller</h5>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-1">
-                  <img src="http://placehold.it/150x150" alt="slider 02">
+                  <img src="http://res.cloudinary.com/dcggaci79/image/upload/c_scale,h_300,w_300/v1516361604/2011_captain_america_first_avenger-1280x720_v8bbqt.jpg" alt="slider 02">
                   <div class="team_columns_item_caption">
-                     <h4>Karachi</h4>
+                     <h4>Captain America</h4>
                      <hr>
-                     <h5>PAKISTAN</h5>
+                     <h5>Fiction</h5>
                   </div>
                </div>
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-2">
-                  <img src="http://placehold.it/150x150" alt="slider 02">
+                  <img src="http://res.cloudinary.com/dcggaci79/image/upload/c_scale,h_300,w_300/v1516361610/spiderman_homecoming_2017_4k_8k-1280x720_tvnr63.jpg" alt="slider 02">
                   <div class="team_columns_item_caption">
-                     <h4>Lahore</h4>
+                     <h4>Spiderman</h4>
                      <hr>
-                     <h5>PAKISTAN</h5>
+                     <h5>Action</h5>
                   </div>
                </div>
-               <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image cloneditem-3">
-                  <img src="http://placehold.it/150x150" alt="slider 02">
-                  <div class="team_columns_item_caption">
-                     <h4>Karachi</h4>
-                     <hr>
-                     <h5>PAKISTAN</h5>
-                  </div>
-               </div>
-            </div>
+               
             <!--========= 3rd slide =========-->
             <div class="item">
                <div class="col-xs-12 col-sm-6 col-md-3 team_columns_item_image">

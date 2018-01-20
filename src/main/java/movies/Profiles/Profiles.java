@@ -10,16 +10,30 @@ import javax.persistence.Id;
 public class Profiles {
 
 	@Id @GeneratedValue( strategy = GenerationType.AUTO )
-	private String Id;
+	private int Id;
+	
 	private String First_Name;
 	private String Last_Name;
 	private String Email;
 	private String Password;
 	private String Address;
-	private String Contact_Number;
+	private int Contact_Number;
 	private boolean active = true;
 	
 	private String role = "ROLE_USER";
+	
+	public int getId() {
+		return Id;
+	}
+	public void setId(int id) {
+		Id = id;
+	}
+	public int getContact_Number() {
+		return Contact_Number;
+	}
+	public void setContact_Number(int contact_Number) {
+		Contact_Number = contact_Number;
+	}
 	
 	public String getRole() {
 		return role;
@@ -32,12 +46,6 @@ public class Profiles {
 	}
 	public void setActive(boolean active) {
 		this.active = active;
-	}
-	public String getId() {
-		return Id;
-	}
-	public void setId(String id) {
-		Id = id;
 	}
 	public String getFirst_Name() {
 		return First_Name;
@@ -68,12 +76,6 @@ public class Profiles {
 	}
 	public void setAddress(String address) {
 		Address = address;
-	}
-	public String getContact_Number() {
-		return Contact_Number;
-	}
-	public void setContact_Number(String contact_Number) {
-		Contact_Number = contact_Number;
 	}
 		
 }	

@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import movies.Movie.Movie;
+
 @Entity
 public class Cart {
 
@@ -51,7 +53,4 @@ public class Cart {
 	public void setUsername(String Email) {
 		this.Email = Email;
 	} 
-	
-	
-		
 }

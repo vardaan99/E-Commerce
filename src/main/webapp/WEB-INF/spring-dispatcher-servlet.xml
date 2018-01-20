@@ -14,7 +14,9 @@
    http://www.springframework.org/schema/tx
    http://www.springframework.org/schema/tx/spring-tx.xsd
    http://www.springframework.org/schema/webflow-config 
-   http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd">
+   http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd
+   http://www.springframework.org/schema/jdbc
+   http://www.springframework.org/schema/jdbc/spring-jdbc-3.1.xsd">
    
 
 	<context:component-scan base-package="movies"/>
@@ -40,17 +42,18 @@
 
 	<bean id="dataSource" 
 	      class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
-	      <property name="driverClassName" value="org.h2.Driver"/>
-	      <property name="url" value="jdbc:h2:~/vardaan;AUTO_SERVER=TRUE"/>
-	      <property name="username" value="vardaan"/>
-	      <property name="password" value=""/>
+	      <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+	      <property name="url" value="jdbc:mysql://localhost:3306/movies"/>
+	      <property name="username" value="root"/>
+	      <property name="password" value="root"/>
 	   </bean>
+	   
 
 	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.H2Dialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="javax.persistence.validation.mode">none</prop>
@@ -72,7 +75,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	
-	<!--  -->
+
 
 	<webflow:flow-executor id="flowExecutor" flow-registry="flowRegistry">
 		<webflow:flow-execution-repository max-execution-snapshots="0"/>
