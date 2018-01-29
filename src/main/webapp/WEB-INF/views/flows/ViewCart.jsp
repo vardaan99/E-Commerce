@@ -25,7 +25,7 @@ var app = angular.module("myApp" , []).controller("myCtrl" , function($scope,$ht
 	
 	$http( {
 				method: 'POST',
-				url:'http://localhost:9001/movies/fetchCartItems',
+				url:'http://localhost:9001/movies/getAllCartItems',
 				headers : {'Content-Type':'application/x-www-form-urlencoded'}
 		}).then(function(response){
 	    	console.log(response.data);
@@ -67,27 +67,8 @@ $scope.Delete=function(arg){
 
 </script>
 
-<body ng-app="myApp" ng-controller="myCtrl">
-
-<nav class="navbar navbar-inverse" style="border-radius: 0px; border: none; background-color: #cc6600;">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"  style="background-color: #cc6600; border: none;">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="#" style="color: black">Website</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="/pets/" style="color: black">Home</a></li>
-        <li><a href="/pets/aboutus/" style="color: black">About Us</a></li>
-        <li><a href="/pets/contactus/" style="color: black">Contact Us</a></li>  
-      </ul>
-    </div>
-  </div>
-</nav>
+<body id="gradl" ng-app="myApp" ng-controller="myCtrl">
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <h1>View Cart</h1>
 
@@ -95,19 +76,19 @@ $scope.Delete=function(arg){
 	<thead>
 			<tr style="text-align: center;">
 				<th>NAME</th>
-				<th>RATING</th>
+				<th>PRICE</th>
 				<th>QUANTITY</th>
 				<th>Image</th>
 				<th>DELETE</th>
 			</tr>
 	</thead>
 	<tbody>		
-		<tr>
-			<td>${x.getName()}</td>
-			<td>${x.getRating()}</td>
-			<td>${x.getQuantity()}</td>
-			<td><img src="${x.getImagePath()}" style="height: 50px; width: 50px;"></td>
-			<td><a href="DeleteMovieFromDB/${x.getId()}" class="btn btn-danger">Delete</a></td>
+		<tr ng-repeat="x in data">
+			<td>{{x.pname}}</td>
+			<td>{{x.pprice}}</td>
+			<td>{{x.qty}}</td>
+			<td><img src="{{x.pimg}}" style="height: 50px; width: 50px;"></td>
+			<td><a href="DeleteMovieFromDB/{{x.id}}" class="btn btn-danger">Delete</a></td>
 		</tr>
 	</tbody>
 </table>

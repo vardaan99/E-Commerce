@@ -15,29 +15,62 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
-<body>
+<script>
 
-<nav class="navbar navbar-inverse" style="border-radius: 0px; border: none; background-color: #cc6600;">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"  style="background-color: #cc6600; border: none;">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="#" style="color: black">Website</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="/pets/" style="color: black">Home</a></li>
-        <li><a href="/pets/aboutus/" style="color: black">About Us</a></li>
-        <li><a href="/pets/contactus/" style="color: black">Contact Us</a></li>  
-      </ul>
-    </div>
-  </div>
-</nav>
+var app = angular.module("myApp", []).controller("myCtrl", function($scope,$http) {
+   
+    
+   $scope.data=[];
+    
+    $http(	{
+    			method: 'POST',
+	      		url: 'http://localhost:8080/shoes/DeleteCartItems',
+	      		 headers : {'Content-Type':'application/x-www-form-urlencoded'}
+    			}).then(function(response){
+			    	console.log(response.data);
+			    
+			    	
+			    	
+    			});
+    
+    $scope.Delete=function(arg){
+    	
+    	alert(arg);
+    	
+    	var json={"id":arg};
+    	
+    	console.log( JSON.stringify(json) );
+    	
+    	$http(	{
+			method: 'POST',
+      		url: 'http://localhost:8080/shoes/deletefromcart',
+      		data:JSON.stringify(json),
+      		 headers : {'Content-Type':'application/json'}
+			}).then(function(response){
+		    	console.log(response.data);
+		    
+		    	//Fetch Again
+		    	$http(	{
+	    			method: 'POST',
+		      		url: 'http://localhost:8080/shoes/fetchCartItems',
+		      		 headers : {'Content-Type':'application/x-www-form-urlencoded'}
+	    			}).then(function(response){
+				    	console.log(response.data);
+				    
+				    	$scope.data = response.data;
+				    	
+	    			});
+			});
+    } 
+});
+</script>
 
-<h1>Order Complete. Thank You</h1>
+<body ng-app="myApp" ng-controller="myCtrl">
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+
+
+<h1 class="alert alert-success"><center>Thank You!</center></h1>
+<br><br><br>
 
 <a href="${flowExecutionUrl}&_eventId=goToPage3">Get Invoice</a>
 <a href="${pageContext.request.contextPath}/">Home Page</a>

@@ -13,9 +13,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ProfilesDAOImpl implements ProfilesDAO {
 
-	@Autowired
+		@Autowired
 	SessionFactory sessionFactory;
 	
+		
 	public void insert(Profiles p) {
 		sessionFactory.getCurrentSession().save(p);
 	}
@@ -37,5 +38,10 @@ public class ProfilesDAOImpl implements ProfilesDAO {
 	public List<Profiles> getProfiles() {
 		return sessionFactory.getCurrentSession().createQuery("from Profiles").list();
 		}
+
+	public List<Profiles> getAll() {
+		return (List<Profiles>)this.sessionFactory.getCurrentSession().createQuery("from Profiles").list();
+	}
+
 
 }

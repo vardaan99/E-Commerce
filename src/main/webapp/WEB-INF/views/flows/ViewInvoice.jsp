@@ -14,30 +14,104 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 </head>
-<body>
+<script>
 
-<nav class="navbar navbar-inverse" style="border-radius: 0px; border: none; background-color: #cc6600;">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar"  style="background-color: #cc6600; border: none;">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span> 
-      </button>
-      <a class="navbar-brand" href="#" style="color: black">Website</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="/pets/" style="color: black">Home</a></li>
-        <li><a href="/pets/aboutus/" style="color: black">About Us</a></li>
-        <li><a href="/pets/contactus/" style="color: black">Contact Us</a></li>  
-      </ul>
-    </div>
-  </div>
-</nav>
+var app = angular.module("myApp", []).controller("myCtrl", function($scope,$http) {
+    
+$scope.data = [];
+    
+    $scope.total = 0;
+    
+    $http(	{
+    			method: 'POST',
+	      		url: 'http://localhost:9001/movies/getAllCartItems',
+	      		 headers : {'Content-Type':'application/x-www-form-urlencoded'}
+    			}).then(function(response){
+			    	console.log(response.data);
+			    
+			    	$scope.data = response.data;
+			    	
+			    	for( var x = 0; x < $scope.data.length ; x++ )
+			    	{
+			    		$scope.total += $scope.data[x].pprice *  $scope.data[x].qty;
+			    	}
+			    	
+    			});
+    
+    $scope.Delete=function(arg){
+    	
+    	alert(arg);
+    	
+    	var json={"id":arg};
+    	
+    	console.log( JSON.stringify(json) );
+    	
+    	$http(	{
+			method: 'POST',
+      		url: 'http://localhost:9001/movies/DeleteCartItems',
+      		data:JSON.stringify(json),
+      		 headers : {'Content-Type':'application/json'}
+			}).then(function(response){
+		    	console.log(response.data);
+		    
+		    	//Fetch Again
+		    	$http(	{
+	    			method: 'POST',
+		      		url: 'http://localhost:9001/movies/getAllCartItems',
+		      		 headers : {'Content-Type':'application/x-www-form-urlencoded'}
+	    			}).then(function(response){
+				    	console.log(response.data);
+				    
+				    	$scope.data = response.data;
+				    	
+	    			});
+			});   	
+    }    
+});
+</script>
 
-<h1>View Invoice</h1>
+<body ng-app="myApp" ng-controller="myCtrl">
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
+
+
+<h1 class="alert alert-success"><center>Invoice</center></h1>
+<br><br><br>
+<table class="table table-striped " style="margin: auto; width: 80%;">
+	<thead>
+		<tr>
+			<th></th>
+			<th></th>
+			<th>Price</th>
+			<th>Quantity</th>
+			<th>Sub Total</th>		
+		</tr>
+	</thead>
+	
+	<tbody>
+		<tr ng-repeat="x in data">
+			<td><img src="{{x.pimg}}" style="width:100px; height:100px; border: 1px solid black; box-shadow: 8px 8px 6px grey;" class="img-responsive indexcatimage"></td>
+			<td>{{x.pname}}</td>			
+			<td>&#8377; {{x.pprice}}</td>
+			<td>{{x.qty}}</td>
+			<td>&#8377;{{x.pprice*x.qty}}</td>
+			
+		</tr>
+			<td></td>
+			<td></td>
+			<td></td>
+			<td><span style="font-weight:bold;">Grand Total:-</span></td>
+			<td><span style="font-weight:bold;">&#8377; {{total}}</span></td>
+		<tr>	
+		</tr>
+	</tbody>
+</table>
+<br>
+<br>
+<br>
+
 
 <a href="${flowExecutionUrl}&_eventId=goToPage2">Select Address</a>
 <a href="${flowExecutionUrl}&_eventId=goToPage4">Order Complete</a>

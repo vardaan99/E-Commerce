@@ -9,6 +9,7 @@ public interface ProfilesDAO {
 	void delete( int id );
 
 	Profiles getSignup(int id);
+	List<Profiles>getAll();
 	List<Profiles> getProfiles();
 
 }

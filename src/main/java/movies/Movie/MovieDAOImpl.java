@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class MovieDAOImpl implements MovieDAO {
 
+	
 	@Autowired
 	SessionFactory sessionFactory;
 	
@@ -25,12 +26,12 @@ public class MovieDAOImpl implements MovieDAO {
 		
 	}
 
-	public void delete(int id) {
-		sessionFactory.getCurrentSession().createQuery("delete from Movie where id = :somevalue").setInteger("somevalue", id).executeUpdate();		
+	public void delete(int mid) {
+		sessionFactory.getCurrentSession().createQuery("delete from Movie where mid = :somevalue").setInteger("somevalue", mid).executeUpdate();		
 		}
 
-	public Movie getMovie(int id) {
-		return (Movie) sessionFactory.getCurrentSession().get(Movie.class, id);
+	public Movie getMovie(int mid) {
+		return (Movie) sessionFactory.getCurrentSession().get(Movie.class, mid);
 		
 	}
 
@@ -38,5 +39,8 @@ public class MovieDAOImpl implements MovieDAO {
 		return sessionFactory.getCurrentSession().createQuery("from Movie").list();
 		}
 
+	public Movie getProductsbyId(int mid) {
+		return (Movie)this.sessionFactory.getCurrentSession().createQuery("from Movie where mid=:id").setInteger("id", mid).list().get(0);	
+	}
 
 }

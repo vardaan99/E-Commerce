@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>View Profiles</title>
+<title>View Movie</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -18,11 +18,12 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-<body>
+
+<body id="grad1">
 <jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <br>
 
-<h1 style="margin: auto; width: 80%; text-align: center;">View Profiles</h1>
+<h1 style="margin: auto; width: 80%; text-align: center;">View Movie</h1>
 
 <br>
 
@@ -32,35 +33,46 @@
 	
 		<tr style="text-align: center;">
 			<th>ID</th>
-			<th>FIRST NAME</th>
-			<th>LAST NAME</th>
-			<th></th>
-			<th>PASSWORD</th>
-			<th>DOB</th>
-			<th>GENDER</th>
+			<th>NAME</th>
+			<th>PRICE</th>
+			<th>DESCRIPTION</th>
+			<th>IMAGE PATH</th>
+			<th>QUANTITY</th>
+			
 		</tr>
 	
 	</thead>
 
 	<tbody>
-			
-		<c:forEach items="${AllProfiles}" var="x">
+	
+	
 		
-		<tr>
-			<td align="left">${x.getId()}</td>
-			<td align="left">${x.getFirst_Name()}</td>
-			<td align="left">${x.getLast_Name()}</td>
-			<td align="left">${x.getEmail()}</td>
-			<td align="left">${x.getPassword()}</td>
-			<td align="left">${x.getDate()}</td>
-			<td align="left">${x.getGender()}</td>
-			<td align="left"><a href="UpdateProfiles/${x.getId()}" class="btn btn-danger">Update</a></td>
-			<td align="left"><a href="DeleteProfilesFromDB/${x.getId()}" class="btn btn-danger">Delete</a></td>
+		<br>    
+    	<tr>
+		
+			<td align="left">${Movie.getMid()}</td>
+			<td align="left">${Movie.getName()}</td>
+			<td align="left">${Movie.getPrice()}</td>
+			<td align="left">${Movie.getDescription()}</td>
+			<td><img src="${Movie.getImage()}" style="height:50px; width:50px;"></td>
+		
+			
 		</tr>
 		
-		</c:forEach>		
-			
+		<form action="${pageContext.request.contextPath}/AddCartToDB" method="post">
+	
+		<input type="hidden" value="${Movie.getMid()}" name="Id">
 		
+		<br>
+		<br>
+		<input type="number" placeholder="Quantity" class="form-control" name="quantity" style="margin: auto;  width: 10%; text-align: center;">
+		<br>    
+    	<button type="submit" class="btn btn-success" style=" float:left; margin-left:50px; margin-top:23px">AddToCart</button>	
+	
+		</form>
+	
+				
+	</form>	
 			
 	</tbody>
 

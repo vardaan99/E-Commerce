@@ -18,6 +18,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <br>
 
@@ -31,7 +32,7 @@
 	
 	<br>
 	
-	<form:input path="Rating" type="" class="form-control" placeholder="Rating" />
+	<form:input path="price" type="" class="form-control" placeholder="Price" />
 	
 	<br>
 	

@@ -10,15 +10,20 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.cloudinary.utils.ObjectUtils;
 import com.cloudinary.Cloudinary;
 
+import movies.Cart.Cart;
+import movies.Cart.CartDAO;
 import movies.Movie.*;
 
 @Controller
@@ -26,6 +31,9 @@ public class MovieController {
 	
 	@Autowired
 	MovieDAO mdao;
+	
+	@Autowired
+	CartDAO cdao;
 
 	@RequestMapping("/AddMovie")
 	public ModelAndView AddMovie() {
@@ -80,15 +88,45 @@ public class MovieController {
 		return mv;
 	}
 
-	@RequestMapping("/UpdateMovie/{id}")
-	public ModelAndView UpdateMovie(@PathVariable("id") int id) {
+	@RequestMapping("/UpdateMovie/{mid}")
+	public ModelAndView UpdateMovie(@PathVariable("mid") int mid) {
 		ModelAndView mv = new ModelAndView("UpdateMovie");
 
-		mv.addObject("Movie", mdao.getMovie(id));
+		mv.addObject("Movie", mdao.getMovie(mid));
 
 		return mv;
 	}
 
+	private String getCurrentUser(){
+		
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+	    if (auth != null && !auth.getName().equals("anonymousUser"))
+	    {    
+	    	System.out.println(auth.getName());
+	    	System.out.println("User present");
+	    	return auth.getName();
+	    }
+	    
+		return "";
+	}
+	
+	@RequestMapping(value = "/AddCartToDB", method = RequestMethod.POST)
+	public ModelAndView AddCartToDB( @RequestParam("Id") int id , @RequestParam("quantity") int qty ) {
+		ModelAndView mv = new ModelAndView("redirect:/cart");
+
+		String user = this.getCurrentUser();
+		
+		Cart c = new Cart();
+		
+		c.setPid(id);
+		c.setQuantity(qty);
+		c.setUsername(user);
+		
+		cdao.insert(c);
+
+		return mv;
+	}
+	
 	@RequestMapping("/ViewMovie")
 	public ModelAndView ViewMovie() {
 		ModelAndView mv = new ModelAndView("ViewMovie");
@@ -108,11 +146,20 @@ public class MovieController {
 		return mv;
 	}
 
-	@RequestMapping("/DeleteMovieFromDB/{id}")
-	public ModelAndView DeleteMovieFromDB(@PathVariable("id") int id) {
+	@RequestMapping("/DeleteMovieFromDB/{mid}")
+	public ModelAndView DeleteMovieFromDB(@PathVariable("mid") int mid) {
 		ModelAndView mv = new ModelAndView("redirect:/ViewMovie");
 
-		mdao.delete(id);
+		mdao.delete(mid);
+
+		return mv;
+	}
+	
+	@RequestMapping("/ViewOneMovie/{mid}")
+	public ModelAndView ViewOneMovie(@PathVariable("mid") int mid) {
+		ModelAndView mv = new ModelAndView("ViewOneMovie");
+
+		mv.addObject("Movie", mdao.getMovie(mid));
 
 		return mv;
 	}

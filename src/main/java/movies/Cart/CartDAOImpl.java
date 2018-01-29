@@ -11,8 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional
-public class CartDAOImpl implements CartDAO {
+public class CartDAOImpl  implements CartDAO {
 
+		
 	@Autowired
 	SessionFactory sessionFactory;
 	
@@ -37,4 +38,14 @@ public class CartDAOImpl implements CartDAO {
 	public List<Cart> getCart() {
 		return sessionFactory.getCurrentSession().createQuery("from Cart").list();
 		}
+	public void update(String Email, String ship, String bill) {
+		
+		System.out.println("Update Cart");
+		
+		System.out.println(Email);
+		System.out.println(ship);
+		System.out.println(bill);
+		
+		this.sessionFactory.getCurrentSession().createQuery("update Cart set Shipping_Address = :ship, Billing_Address= :bill where Email=:Email").setString("ship",ship).setString("bill",bill).setString("Email", Email).executeUpdate();
+	}
 }

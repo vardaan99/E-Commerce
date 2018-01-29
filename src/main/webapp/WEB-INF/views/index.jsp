@@ -16,67 +16,9 @@
 
 </head>
 
-
 <body>
-
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <style>
-/*scroll effect*/
-.navbar-trans {
-  background-color: transparent;
-  border: none;
-  transition: top 1s ease;
-}
- 
-/*double row*/
-.navbar-doublerow > .navbar{
-	display: block;	
-	padding: 0px auto;
-	margin: 0px auto;
-	min-height: 25px;
-}
-.navbar-doublerow .nav{
-	padding: 0px auto;
-}
-.navbar-doublerow .dividline{
-  margin: 5px 100px;
-  padding-top: 1px;
-  background-color: inherit;
-}
-/*top nav*/
-.navbar-doublerow .navbar-top ul>li>a {
-	padding: 10px auto;
-	font-size: 12px;
-} 
-/*down nav*/
-.navbar-doublerow .navbar-down .navbar-brand {
-	padding: 0px auto;
-	float: left;
-	color: #01579B;
-	font-size: 32px;
-}
-.navbar-doublerow .navbar-down ul>li>a{
-	font-size: 16px;
-	color: #01579B;
-	transition: border-bottom .2s ease-in , transform .2s ease-in-out;
-}
-.navbar-doublerow .navbar-down ul>li>a:hover{
-	border-bottom: 1px solid #fff;
-	color: #01579B;
-}
-.navbar-doublerow .navbar-down .dropdown{
-    padding: 5px;
-    color: #01579B;
-}
-.navbar-doublerow .navbar-down .dropdown ul>li>a,
-.navbar-doublerow .navbar-down .dropdown ul>li>a:hover{
-  color: #01579B;
-  border-bottom: none;
-}
-.navbar-doublerow.navbar-trans.afterscroll {
-}	
-.navbar-doublerow.navbar-trans.afterscroll {
-   top:-50px;
-}	
 
 .flex-container {
     display: flex;
@@ -318,61 +260,6 @@ all and (min-width: 992px) and (-webkit-transform-3d) {
 }
 </style>
 
-<header>
-    <img src="http://res.cloudinary.com/dcggaci79/image/upload/v1511462181/um08ywluqywhvawbwcav.jpg" style="width:100%">
-</header>
-
-<nav class="navbar navbar-default navbar-doublerow navbar-trans navbar-fixed-top">
-  <!-- top nav -->
-  <nav class="navbar navbar-top hidden-xs">
-    <div class="container">
-      <!-- left nav top -->
-      <ul class="nav navbar-nav pull-left">
-        <li><a href="#"><span class="glyphicon glyphicon-thumbs-up text-white"></span></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-globe text-white"></span></a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-pushpin text-white"></span></a></li>
-        <li><a href="#"><span class="text-white">QUESTIONS? CALL: <b>+963000000000</b></span></a></li>
-      </ul>
-      <!-- right nav top -->
-      <ul class="nav navbar-nav pull-right">
-       <li><a href="#" class="text-white">About Us</a></li>
-        <li><a href="#" class="text-white">Contact Us</a></li> 
-       </ul>
-    </div>
-    <div class="dividline light-grey"></div>
-  </nav>
-  <!-- down nav -->
-  <nav class="navbar navbar-down">
-    <div class="container">
-      <div class="flex-container">  
-        <div class="navbar-header flex-item">
-          <div class="navbar-brand" href="#">Mad Over Movies</div>
-        </div>
-        <ul class="nav navbar-nav flex-item hidden-xs">
-          <li><a href="ViewGenre">Categories</a></li>
-          <li><a href="#">Rating</a></li> 
-          <li><a href="ShowProducts">Cart</a></li> 
-        </ul>
-        <ul class="nav navbar-nav flex-item hidden-xs pull-right">
-          <li><a href="login" class="text-white">Login</a></li>
-          <li><a href="signup" class="text-white">Sign Up</a></li> 
-        </ul>
-        <!-- dropdown only moblie -->
-          <div class="dropdown visible-xs pull-right">
-            <button class="btn btn-default dropdown-toggle " type="button" id="dropdownmenu" data-toggle="dropdown">
-              <span class="glyphicon glyphicon-align-justify"></span> 
-            </button>
-            <ul class="dropdown-menu">
-              <li><a href="#">Categories</a></li>
-              <li><a href="#">Rating</a></li> 
-              <li><a href="#">TheTeam</a></li> 
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Contact us</a></li>
-            </ul>
-          </div>
-        </div>  
-      </div>
-      
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 <script type="text/javascript" src="http://yourjavascript.com/21051171187/jquery-touchswipe-min.js"></script>
 <script type="text/javascript" src="http://yourjavascript.com/11873115711/jquery-1-12-4-min.js"></script>

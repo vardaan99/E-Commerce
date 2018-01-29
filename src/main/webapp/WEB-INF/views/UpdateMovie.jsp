@@ -18,31 +18,23 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 <br>
 
-<h1 style="margin: auto; width: 80%; text-align: center;">Add Movie</h1>
+<h1 style="margin: auto; width: 80%; text-align: center;">Update Movie</h1>
 
 <br>
 
 <form:form method="post" action="UpdateMovieToDB" modelAttribute="Movie" style="margin: auto; width: 80%; text-align: center;">
 
-	<form:input path="id" type="text" class="form-control" placeholder="Id"  readonly="true"/>
-	
+	<form:input path="mid" type="text" class="form-control" placeholder="Mid"  readonly="true"/>
 	<br>
-	
 	<form:input path="name" type="text" class="form-control" placeholder="Movie Name" />
-	
 	<br>
-	
-	<form:input path="Rating" type="text" class="form-control" placeholder="Rating" />
-	
+	<form:input path="price" type="text" class="form-control" placeholder="price" />
 	<br>
-	
 	<form:textarea path="Description" type ="text" class="form-control" placeholder="Genre Description"/>
-
 	<br>
-
 	<input type="submit" class="btn btn-primary" value="Submit"/>
 
 </form:form>

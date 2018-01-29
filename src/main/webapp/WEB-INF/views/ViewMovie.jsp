@@ -19,6 +19,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/header.jsp"></jsp:include>
 
 <br>
 
@@ -33,7 +34,7 @@
 		<tr style="text-align: center;">
 			<th>ID</th>
 			<th>NAME</th>
-			<th>RATING</th>
+			<th>PRICE</th>
 			<th>DESCRIPTION</th>
 			<th>IMAGE PATH</th>
 			<th>UPDATE</th>
@@ -47,16 +48,16 @@
 		<c:forEach items="${AllMovie}" var="x">
 		
 		<tr>
-			<td align="left">${x.getId()}</td>
+			<td align="left">${x.getMid()}</td>
 			<td align="left">${x.getName()}</td>
-			<td align="left">${x.getRating()}</td>
+			<td align="left">${x.getPrice()}</td>
 			<td align="left">${x.getDescription()}</td>
-			<td align="left">${x.getImagePath()}</td>
-			<td align="left"><a href="UpdateMovie/${x.getId()}" class="btn btn-danger">Update</a></td>
+			<td align="left">${x.getImage()}</td>
 			
-			<td align="left"><a href="ViewOneMovie/${x.getId()}" class="btn btn-primary">View Further</a></td>
-			
-			<td align="left"><a href="DeleteMovieFromDB/${x.getId()}" class="btn btn-danger">Delete</a></td>
+			<td align="left"><a href="UpdateMovie/${x.getMid()}" class="btn btn-danger">Update</a></td>
+			<td align="left"><a href="ViewOneMovie/${x.getMid()}" class="btn btn-primary">View Further</a></td>
+			<td align="left"><a href="DeleteMovieFromDB/${x.getMid()}" class="btn btn-danger">Delete</a></td>
+		
 		</tr>
 		
 		</c:forEach>		

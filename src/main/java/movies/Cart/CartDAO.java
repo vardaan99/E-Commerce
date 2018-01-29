@@ -4,11 +4,11 @@ import java.util.List;
 
 public interface CartDAO {
 	
-	void insert( Cart c );
-	void update( Cart c );
-	void delete( int id );
+	public void insert( Cart c );
+	public void update( Cart c );
+	public void update(String Email,String ship,String bill);
+	public void delete( int id );
 
-	Cart getCart(int id);
-	List<Cart> getCart();
-
+	public Cart getCart(int id);
+	public List<Cart> getCart();
 }

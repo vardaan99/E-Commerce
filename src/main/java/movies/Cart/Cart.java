@@ -13,11 +13,12 @@ public class Cart {
 	@Id @GeneratedValue( strategy = GenerationType.AUTO )
 	
 	private int id;
-	private int pid;
+	private int mid;
 	private String Billing_Address;
 	private String Shipping_Address;
 	private int quantity;
 	private String Email;
+	
 	
 	public int getId() {
 		return id;
@@ -25,11 +26,11 @@ public class Cart {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public int getPid() {
-		return pid;
+	public int getMid() {
+		return mid;
 	}
-	public void setPid(int pid) {
-		this.pid = pid;
+	public void setPid(int mid) {
+		this.mid = mid;
 	}
 	public String getBilling_Address() {
 		return Billing_Address;
